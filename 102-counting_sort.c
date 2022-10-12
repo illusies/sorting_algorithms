@@ -14,7 +14,6 @@ void counting_sort(int *array, size_t size)
 
 	if (array == NULL || size < 2)
 		return;
-
 	output = malloc(sizeof(int) * ((int)size + 1));
 	if (!output)
 		return;
@@ -28,7 +27,6 @@ void counting_sort(int *array, size_t size)
 		free(output);
 		return;
 	}
-
 	for (i = 0; i < (int)size; i++)
 	{
 		j = array[i];
@@ -54,17 +52,15 @@ void counting_sort(int *array, size_t size)
  * @size: size of the array
  * Return: the biggest number
  */
-
-int get_biggest_num(int *array, size_t size)
+int find_maxnum(int *array, size_t size)
 {
-	int i, b = 0;
+	int i, maxnum = 0;
 
 	for (i = 0; i < (int)size; i++)
-		b = b < array[i] ? array[i] : b;
+		maxnum = maxnum < array[i] ? array[i] : maxnum;
 
-	return (b);
+	return (maxnum);
 }
-
 
 /**
  * fill_array - fills array a with values in array b
@@ -73,13 +69,13 @@ int get_biggest_num(int *array, size_t size)
  * @size: size both arrays should be same size
  * Return: void
  */
-
-void fill_array(int *arra, int *arrb, size_t size)
+void fill_array(int *array_a, int *array_b, size_t size)
 {
 	int i;
 
 	for (i = 0; i < (int)size; i++)
-		arra[i] = arrb[i];
+		array_a[i] = array_b[i];
 
-	free(arrb);
+	free(array_b);
 }
+
